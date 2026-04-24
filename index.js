@@ -17,8 +17,10 @@ function stoptimer(){
         clearInterval(timer);
         elapsedTime = Date.now() - startTime;
         isRunning = false;
-        
     }
+    
+    timelapse.textContent = display.textContent
+
 }
 function reset(){
     clearInterval(timer);
