@@ -3,6 +3,7 @@ let timer = null;
 let startTime = 0;
 let elapsedTime = 0;
 let isRunning = false;
+let music = document.getElementById('music');
 
 function start(){
     if(!isRunning){
@@ -10,6 +11,7 @@ function start(){
         timer = setInterval(update, 10);
         isRunning = true;
     }
+    music.play();
 }
 function stoptimer(){
     
@@ -19,6 +21,7 @@ function stoptimer(){
         isRunning = false;
     }
     
+    music.pause();
     timelapse.textContent = display.textContent
 
 }
@@ -28,6 +31,8 @@ function reset(){
     elapsedTime = 0;
     isRunning = false;
     display.textContent = "00:00:00:00"
+    music.pause();
+    music.currentTime = 0;
 }
 function update(){
     const currentTime = Date.now();
